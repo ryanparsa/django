@@ -6,6 +6,7 @@ django template for new projects with minimum dependencies
 - postgresql
 - redis
 
+
 ```
 .
 ├── .editorconfig
@@ -33,6 +34,9 @@ django template for new projects with minimum dependencies
     │   │   ├── local.py
     │   │   ├── local.py.sample
     │   │   └── prod.py
+    │   ├── templates
+    │   │   └── admin
+    │   │       └── index.html
     │   ├── urls.py
     │   └── wsgi.py
     ├── identity
@@ -47,5 +51,5 @@ django template for new projects with minimum dependencies
     │   └── views.py
     └── manage.py
 
-8 directories, 31 files
+10 directories, 32 files
 ```

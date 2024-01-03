@@ -16,7 +16,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.contrib.auth.forms import AuthenticationForm
+from django.conf import settings
+from django.conf.urls.static import static
+
+# handler400 = 'django.views.defaults.bad_request'
+# handler403 = 'django.views.defaults.permission_denied'
+# handler404 = 'django.views.defaults.page_not_found'
+# handler500 = 'django.views.defaults.server_error'
+
+# admin.site.login_form = AuthenticationForm
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+
+if settings.DEBUG:
+    urlpatterns.extend(static(settings.STATIC_URL, document_root=settings.STATIC_ROOT))
+    urlpatterns.extend(static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))
