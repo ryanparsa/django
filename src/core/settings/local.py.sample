@@ -5,7 +5,7 @@ SECRET_KEY = 'RANDOM_SECRET'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'core.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'my_app',
         'USER': 'postgres',
         'PASSWORD': 'postgres',

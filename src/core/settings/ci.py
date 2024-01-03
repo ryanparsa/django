@@ -3,7 +3,7 @@ from .dev import *
 # Github action postgres
 DATABASES = {
     'default': {
-        'ENGINE': 'core.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'github_actions',
         'USER': 'postgres',
         'PASSWORD': 'postgres',

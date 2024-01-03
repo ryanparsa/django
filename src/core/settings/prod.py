@@ -16,7 +16,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 DATABASES = {
     'default': {
-        'ENGINE': 'core.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.getenv('POSTGRES_DATABASE'),
         'USER': os.getenv('POSTGRES_USER'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
