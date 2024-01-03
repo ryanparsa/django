@@ -1,0 +1,6 @@
+-i https://pypi.org/simple
+-r requirements.prod.txt
+
+
+# lint
+prospector[with_everything]==1.10.3

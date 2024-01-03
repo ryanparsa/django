@@ -1,0 +1,17 @@
+services:
+  db:
+    restart: always
+    image: postgres:16-alpine
+    env_file: .env
+    environment:
+      - POSTGRES_DB=${POSTGRES_DATABASE}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+
+  cache:
+    image: redis:7-alpine
+    restart: always
+    ports:
+      - "6379:6379"

@@ -1,0 +1,15 @@
+# this is a sample local.py
+# if you need a local.py file, you can rename this to local.py with `cp local.py.sample local.py`
+
+SECRET_KEY = 'RANDOM_SECRET'
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'core.db.backends.postgresql',
+        'NAME': 'my_app',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}

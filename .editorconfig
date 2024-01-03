@@ -1,0 +1,53 @@
+# Top-most EditorConfig file
+# http://editorconfig.org
+
+root = true
+
+# All files
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Python files
+[*.py]
+max_line_length = 120
+
+# HTML files
+[*.{html,css,js}]
+indent_size = 2
+
+
+# Markdown files
+[*.md]
+trim_trailing_whitespace = false
+
+
+# Minified files
+[**/*.min.{js,css}]
+indent_style = unset
+insert_final_newline = false
+trim_trailing_whitespace = false
+
+# Openapi
+[*.{yaml,yml,json}]
+indent_size = 2
+
+# Dockerfile
+[Dockerfile]
+indent_size = 2
+
+
+# Makefile
+[Makefile]
+indent_style = tab
+indent_size = 4
+
+
+# Bash
+[*.{sh,bash}]
+indent_style = tab
+indent_size = 4

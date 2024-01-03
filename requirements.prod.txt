@@ -1,0 +1,20 @@
+# Django
+Django==5.0.1
+
+# DRF
+# djangorestframework==3.14.0
+# django-filter==23.5
+
+
+# PostgreSQL
+# psycopg[binary]==3.1.16
+
+
+# Celery
+# celery==5.3.6
+# django-celery-beat==2.1.0
+
+
+# Redis
+# redis==5.0.1
+# hiredis==2.3.2

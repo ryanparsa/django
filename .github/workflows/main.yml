@@ -1,0 +1,52 @@
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: github_actions
+        ports:
+          - "5432:5432"
+      cache:
+        image: redis:alpine
+        ports:
+          - "6379:6379"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: psycopg prerequisites
+        run: sudo apt update && sudo apt-get install libpq-dev
+
+      - name: setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip' # caching pip dependencies
+      - run: pip install --no-input --requirement requirements.txt
+
+      - name: Run django test suite
+        working-directory: ./src
+        run: python3 manage.py test
+        env:
+          DJANGO_SETTINGS_MODULE: core.settings.ci
+
+      - name: Run django check suite dev
+        working-directory: ./src
+        run: python3 manage.py check --fail-level ERROR
+        env:
+          DJANGO_SETTINGS_MODULE: core.settings.ci
+
+      - name: Run django check suite prod
+        working-directory: ./src
+        run: python3 manage.py check --deploy --fail-level ERROR
+        env:
+          DJANGO_SETTINGS_MODULE: core.settings.prod
